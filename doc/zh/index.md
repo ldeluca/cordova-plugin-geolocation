@@ -19,25 +19,25 @@
 
 # org.apache.cordova.geolocation
 
-这个插件提供了有关该设备的位置，例如纬度和经度信息。 常见的位置信息来源包括全球定位系统 (GPS) 和网络信号，如 IP 地址、 RFID、 WiFi 和蓝牙 MAC 地址和 GSM/CDMA 单元格 Id 从推断出的位置。 没有任何保证该API 返回设备的实际位置。
+這個外掛程式提供了有關該設備的位置，例如緯度和經度資訊。 常見的位置資訊來源包括全球定位系統 (GPS) 和網路信號，如 IP 位址、 RFID、 WiFi 和藍牙 MAC 位址和 GSM/CDMA 儲存格 Id 從推斷出的位置。 沒有任何保證，API 返回設備的實際位置。
 
-此 API 是基于[W3C Geolocation API Specification][1]，并只执行还没有提供实现的设备上。
+此 API 基於[W3C 地理定位 API 規範][1]，並只執行已經不提供實現的設備上。
 
  [1]: http://dev.w3.org/geo/api/spec-source.html
 
-**WARNING**： 地理定位数据的收集和使用提出了重要的隐私问题。 您的应用程序的隐私策略应该讨论这款应用程序如何使用地理定位数据，数据是否共享它的任何其他同类的和数据精确程度 （例如，粗、 细，ZIP 代码级别，等等） 。 地理定位数据普遍被认为是敏感的，因为它能揭示用户的行踪，以及他们的行程史的存储。 因此，除了应用程序的隐私策略，您应强烈考虑之前应用程序访问地理定位数据提供的一个时间通知（如果设备操作系统已经不会这样做的话） 。 该通知应提供以上提到的相同的信息，以及获取该用户的权限 （例如，通过**OK**和**No Thanks**提出的选择）。 有关详细信息，请参阅隐私指南。
+**警告**： 地理定位資料的收集和使用提出了重要的隱私問題。 您的應用程式的隱私權原則應該討論這款應用程式如何使用地理定位資料，資料是否共用它的任何其他締約方和的資料 （例如，粗、 細，ZIP 代碼級別，等等） 的精度水準。 地理定位資料一般認為是敏感，因為它能揭示使用者的下落以及如果存儲，他們的旅行的歷史。 因此，除了應用程式的隱私權原則，您應強烈考慮之前應用程式訪問地理定位資料 （如果設備作業系統不會這樣做已經) 提供在時間的通知。 該通知應提供相同的資訊上文指出的並獲取該使用者的許可權 （例如，通過為**確定**並**不感謝**提出的選擇）。 有關詳細資訊，請參閱隱私指南。
 
-## 安装
+## 安裝
 
     cordova plugin add org.apache.cordova.geolocation
     
 
-## 支持的平台
+## 支援的平臺
 
-*   亚马逊火 OS
-*   Android 系统
+*   亞馬遜火 OS
+*   Android 系統
 *   黑莓 10
-*   火狐浏览器操作系统
+*   火狐瀏覽器作業系統
 *   iOS
 *   Tizen
 *   Windows Phone 7 和 8
@@ -49,7 +49,7 @@
 *   navigator.geolocation.watchPosition
 *   navigator.geolocation.clearWatch
 
-## 对象 （只读）
+## 物件 （唯讀）
 
 *   Position
 *   PositionError
@@ -57,82 +57,82 @@
 
 ## navigator.geolocation.getCurrentPosition
 
-返回设备的当前位置到 `geolocationSuccess` 回调与 `Position` 对象作为参数。 如果有错误， `geolocationError` 回调通过 `PositionError` 对象。
+返回設備的當前位置到 `geolocationSuccess` 回檔與 `Position` 物件作為參數。 如果有錯誤， `geolocationError` 回檔通過 `PositionError` 物件。
 
     navigator.geolocation.getCurrentPosition （geolocationSuccess，[geolocationError] [geolocationOptions]) ；
     
 
-### 参数
+### 參數
 
-*   **geolocationSuccess**： 传递当前位置的回调。
+*   **geolocationSuccess**： 傳遞當前位置的回檔。
 
-*   **geolocationError**： *(Optional)*如果错误发生时则执行回调。
+*   **geolocationError**： *（可選）*如果錯誤發生時執行的回檔。
 
-*   **geolocationOptions**： *(Optional)*地理定位选项。
+*   **geolocationOptions**： *（可選）*地理定位選項。
 
 ### 示例
 
-    onSuccess 回调 / / 此方法接受一个位置的对象，它包含 / / 目前的 GPS 坐标 / / var onSuccess = function(position) {警报 (' 纬度： '+ position.coords.latitude + \n +' 经度： '+ position.coords.longitude + '\n' +' 海拔高度： '+ position.coords.altitude + \n +' 准确性： '+ position.coords.accuracy + '\n' +' 海拔高度准确性： '+ position.coords.altitudeAccuracy + '\n' +' 标题： '+ position.coords.heading + \n +' 速度： '+ position.coords.speed + '\n' +' 时间戳： ' + position.timestamp + \n) ；} ；onError 回调接收一个 PositionError 对象 / / 函数 onError(error) {警报 (' 代码： '+ error.code + '\n' +' 消息： ' + error.message + \n);}navigator.geolocation.getCurrentPosition (onSuccess，onError) ；
+    onSuccess 回檔 / / 此方法接受一個位置的物件，它包含 / / 目前的 GPS 座標 / / var onSuccess = function(position) {警報 (' 緯度： '+ position.coords.latitude + \n +' 經度： '+ position.coords.longitude + '\n' +' 海拔高度： '+ position.coords.altitude + \n +' 準確性： '+ position.coords.accuracy + '\n' +' 海拔高度準確性： '+ position.coords.altitudeAccuracy + '\n' +' 標題： '+ position.coords.heading + \n +' 速度： '+ position.coords.speed + '\n' +' 時間戳記： ' + position.timestamp + \n) ；} ；onError 回檔接收一個 PositionError 物件 / / 函數 onError(error) {警報 (' 代碼： '+ error.code + '\n' +' 消息： ' + error.message + \n);}navigator.geolocation.getCurrentPosition (onSuccess，onError) ；
     
 
 ## navigator.geolocation.watchPosition
 
-当检测到更改位置返回该设备的当前的位置。 当设备中检索一个新的位置， `geolocationSuccess` 回调执行与 `Position` 对象作为参数。 如果有错误， `geolocationError` 回调执行与 `PositionError` 对象作为参数。
+當檢測到更改位置返回該設備的當前的位置。 當設備中檢索一個新的位置， `geolocationSuccess` 回檔執行與 `Position` 物件作為參數。 如果有錯誤， `geolocationError` 回檔執行與 `PositionError` 物件作為參數。
 
     var watchId = navigator.geolocation.watchPosition （geolocationSuccess，[geolocationError] [geolocationOptions]) ；
     
 
-### 参数
+### 參數
 
-*   **geolocationSuccess**： 传递当前位置的回调。
+*   **geolocationSuccess**： 傳遞當前位置的回檔。
 
-*   **geolocationError**： (Optional) 如果错误发生时执行的回调。
+*   **geolocationError**： （可選） 如果錯誤發生時執行的回檔。
 
-*   **geolocationOptions**： (Optional) 地理定位选项。
+*   **geolocationOptions**： （可選） 地理定位選項。
 
 ### 返回
 
-*   **字符串**： 返回引用的观看位置间隔的表 id。 应与一起使用的表 id `navigator.geolocation.clearWatch` 停止了观看中位置的更改。
+*   **字串**： 返回引用的觀看位置間隔的表 id。 應與一起使用的表 id `navigator.geolocation.clearWatch` 停止了觀看中位置的更改。
 
 ### 示例
 
-    onSuccess 回调 / / 此方法接受一个 '立场' 对象，其中包含 / / 当前 GPS 坐标 / / 函数 onSuccess(position) {var 元素 = document.getElementById('geolocation') ；element.innerHTML = '纬度:' + position.coords.latitude + '< br / >' +' 经度: '+ position.coords.longitude +' < br / >' + ' < hr / >' + element.innerHTML;} / / onError 回调接收一个 PositionError 对象 / / 函数 onError(error) {警报 (' 代码： '+ error.code + '\n' +' 消息： ' + error.message + \n);}如果没有更新收到每隔 30 秒选项： 将引发错误。
-    var watchID = navigator.geolocation.watchPosition （onSuccess，onError，{超时： 30000});
+    onSuccess 回檔 / / 此方法接受一個 '立場' 物件，其中包含 / / 當前 GPS 座標 / / 函數 onSuccess(position) {var 元素 = document.getElementById('geolocation') ；element.innerHTML = '緯度:' + position.coords.latitude + '< br / >' +' 經度: '+ position.coords.longitude +' < br / >' + ' < hr / >' + element.innerHTML;} / / onError 回檔接收一個 PositionError 物件 / / 函數 onError(error) {警報 (' 代碼： '+ error.code + '\n' +' 消息： ' + error.message + \n);}如果沒有更新收到每隔 30 秒選項： 將引發錯誤。
+    var watchID = navigator.geolocation.watchPosition （onSuccess，onError，{超時： 30000});
     
 
 ## geolocationOptions
 
-若要自定义的地理定位检索的可选参数`Position`.
+若要自訂的地理定位檢索的可選參數`Position`.
 
-    {maximumAge: 3000，超时： 5000，enableHighAccuracy: true} ；
+    {maximumAge: 3000，超時： 5000，enableHighAccuracy: true} ；
     
 
-### 选项
+### 選項
 
-*   **enableHighAccuracy**： 提供应用程序需要最佳的可能结果的提示。 默认情况下，该设备将尝试使用基于网络的方法去检索 `Position` 。 将此属性设置为 `true`来告诉此框架要使用更精确的方法，如卫星定位。 *(Boolean)*
+*   **enableHighAccuracy**： 提供應用程式需要最佳的可能結果的提示。 預設情況下，該設備將嘗試檢索 `Position` 使用基於網路的方法。 將此屬性設置為 `true` 告訴要使用更精確的方法，如衛星定位的框架。 *(布林值)*
 
-*   **超时**： 时间 (毫秒) 从调用传递，允许的最大长度 `navigator.geolocation.getCurrentPosition` 或 `geolocation.watchPosition` 直到相应的 `geolocationSuccess` 回调执行。 如果 `geolocationSuccess` 回调函数不会在此时间内被调用的话， `geolocationError` 回调函数将一个 `PositionError.TIMEOUT` 错误代码。 (请注意，在与 `geolocation.watchPosition`一起使用时 ，`geolocationError` 的回调以每 `timeout` 毫秒的时间间隔来调用)*(Number)*
+*   **超時**： 時間 (毫秒) 從調用傳遞，允許的最大長度 `navigator.geolocation.getCurrentPosition` 或 `geolocation.watchPosition` 直到相應的 `geolocationSuccess` 回檔執行。 如果 `geolocationSuccess` 不會在此時間內調用回檔 `geolocationError` 傳遞回檔 `PositionError.TIMEOUT` 錯誤代碼。 (請注意，與一起使用時 `geolocation.watchPosition` 、 `geolocationError` 的時間間隔可以調用回檔每 `timeout` 毫秒!)*（人數）*
 
-*   **maximumAge**： 接受一个其老化不超过以毫秒为单位的指定时间的缓存位置。*(Number)*
+*   **maximumAge**： 接受其年齡大於指定以毫秒為單位的時間沒有緩存的位置。*（人數）*
 
 ### Android 的怪癖
 
-Android 2.x 仿真器不返回地理定位结果除非 `enableHighAccuracy` 选项设置为`true`.
+Android 2.x 模擬器不返回地理定位結果除非 `enableHighAccuracy` 選項設置為`true`.
 
 ## navigator.geolocation.clearWatch
 
-再看对所引用的设备的位置更改为 `watchID` 参数。
+再看對所引用的設備的位置更改為 `watchID` 參數。
 
     navigator.geolocation.clearWatch(watchID) ；
     
 
-### 参数
+### 參數
 
-*   **watchID**： `watchPosition` 间隔清除的id。(String)
+*   **watchID**： 的 id `watchPosition` 清除的時間間隔。（字串）
 
 ### 示例
 
-    选项： 监视的更改的位置，并使用最 / / 准确定位采集方法可用。
+    選項： 監視的更改的位置，並使用最 / / 準確定位採集方法可用。
     var watchID = navigator.geolocation.watchPosition （onSuccess，onError，{enableHighAccuracy: true});....later 上的......
     
     navigator.geolocation.clearWatch(watchID) ；
@@ -140,57 +140,57 @@ Android 2.x 仿真器不返回地理定位结果除非 `enableHighAccuracy` 选�
 
 ## Position
 
-包含 `Position` 坐标和时间戳，由地理位置 API 创建。
+包含 `Position` 座標和時間戳記，由地理位置 API 創建。
 
-### 属性
+### 屬性
 
-*   **coords**： 一组地理坐标。*(Coordinates)*
+*   **coords**： 一組的地理座標。*（座標）*
 
-*   **timestamp**： 为 `coords`创建时间戳 。*(Date)*
+*   **時間戳記**： 創建時間戳記為 `coords` 。*（日期）*
 
 ## Coordinates
 
-A `Coordinates` 对象附加到 `Position` 对象，可用于在当前职位的请求中的回调函数。 它包含一组属性，描述位置的地理坐标。
+A `Coordinates` 物件附加到 `Position` 物件，可用於在當前職位的請求中的回呼函數。 它包含一組屬性，描述位置的地理座標。
 
-### 属性
+### 屬性
 
-*   **lotitude**： 纬度以十进制度为单位。*(Number)*
+*   **緯度**： 緯度以十進位度為單位。*（人數）*
 
-*   **longitude**: 经度以十进制度为单位。*(Number)*
+*   **經度**: 經度以十進位度為單位。*（人數）*
 
-*   **altitude**： 位置的高度在椭圆面上以米为单位。*(Number)*
+*   **海拔高度**： 高度在米以上橢球體中的位置。*（人數）*
 
-*   **accuracy**：纬度和经度水平坐标的准确性以米来衡量。*(Number)*
+*   **準確性**： 中米的緯度和經度座標的精度級別。*（人數）*
 
-*   **altitudeAccuracy**： 海拔高度坐标的精确度以米来衡量。*(Number)*
+*   **altitudeAccuracy**： 在米的海拔高度座標的精度級別。*（人數）*
 
-*   **heading**： 旋转方向，以度为单位，顺时针方向旋转相当于指定正北方向。*(Number)*
+*   **標題**： 旅行，指定以度為單位元數目相對於真北順時針方向。*（人數）*
 
-*   **speed**： 当前地面设备的speed，指定米/每秒。*(Number)*
+*   **速度**： 當前地面速度的設備，指定在米每秒。*（人數）*
 
-### 亚马逊火 OS 怪癖
+### 亞馬遜火 OS 怪癖
 
-**altitudeAccuracy**: 不支持的 Android 设备，返回`null`.
+**altitudeAccuracy**: 不支援的 Android 設備，返回`null`.
 
 ### Android 的怪癖
 
-**altitudeAccuracy**: 不支持 Android 设备，返回`null`.
+**altitudeAccuracy**: 不支援的 Android 設備，返回`null`.
 
 ## PositionError
 
-`PositionError`对象传递给 `geolocationError` 与 navigator.geolocation 发生错误时的回调函数。
+`PositionError`物件傳遞給 `geolocationError` 與 navigator.geolocation 發生錯誤時的回呼函數。
 
-### 属性
+### 屬性
 
-*   **代码**： 下面列出的预定义的错误代码之一。
+*   **代碼**： 下面列出的預定義的錯誤代碼之一。
 
-*   **message**： 描述错误的详细信息的错误讯息遇到的问题。
+*   **消息**： 描述所遇到的錯誤的詳細資訊的錯誤訊息。
 
 ### 常量
 
 *   `PositionError.PERMISSION_DENIED` 
-    *   返回当用户不允许应用程序检索的位置信息。这是取决于平台。
+    *   返回當使用者不允許應用程式檢索的位置資訊。這是取決於平臺。
 *   `PositionError.POSITION_UNAVAILABLE` 
-    *   返回设备时，不能检索的位置。一般情况下，这意味着该设备未连接到网络或无法获取卫星的修复。
+    *   返回設備時，不能檢索的位置。一般情況下，這意味著該設備未連接到網路或無法獲取衛星的修復。
 *   `PositionError.TIMEOUT` 
-    *   返回设备时，无法在指定的时间内检索位置 `timeout` 中包含 `geolocationOptions` 。 与一起使用时 `navigator.geolocation.watchPosition` ，此错误可能反复传递给 `geolocationError` 回调每 `timeout` 毫秒为单位）。
+    *   返回設備時，無法在指定的時間內檢索位置 `timeout` 中包含 `geolocationOptions` 。 與一起使用時 `navigator.geolocation.watchPosition` ，此錯誤可能反復傳遞給 `geolocationError` 回檔每 `timeout` 毫秒為單位）。
